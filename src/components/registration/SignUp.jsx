@@ -4,8 +4,9 @@ import axios from 'axios';
 
 export default function SignUp(props) {
     const [newUser, setNewUser] = useState({
-        email: '',
-        password: ''
+        username: '',
+        password1: '',
+        password2: ''
     })
 
     const handleChange = (e) => {
@@ -19,14 +20,15 @@ export default function SignUp(props) {
     const handleSubmit = (e) => {
         console.log("new user info", newUser)
         e.preventDefault()
-        axios.post('https://lambda-mud-test.herokuapp.com/api/login', newUser)
+        axios.post('https://lambda-mud-test.herokuapp.com/api/registration/', newUser)
         .then(res => {
             localStorage.setItem('token', res.data.key);
-            axios.post("https://lambda-mud-test.herokuapp.com/api/login", 
-            {email: newUser.email, password: newUser.password})
+            console.log('register info:', res.data)
+            axios.post("https://lambda-mud-test.herokuapp.com/api/login/", 
+            {username: newUser.username, password: newUser.password1, password2: newUser.password2})
             .then(res => {
                 localStorage.setItem('token', res.data.key);
-                localStorage.setItem('email', newUser.email)
+                localStorage.setItem('username', newUser.username)
                 props.history.push('/dashboard');
             })
             .catch(err => {
@@ -40,19 +42,30 @@ export default function SignUp(props) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor='email'>email
+            <label htmlFor='username'>
            <input
                 onChange={handleChange}
-                id = 'email'
+                id = 'username'
                 type='text'
-                name='email'
+                name='username'
                 />
            </label>
-           <label htmlFor='password'>
+           <label htmlFor='password1'>
                <input
-                    id='password'
+                    onChange={handleChange}
+                    id='password1'
                     type='password'
-                    name='password'
+                    name='password1'
+                    
+                />
+                    
+            </label>
+            <label htmlFor='password2'>
+               <input
+                    onChange={handleChange}
+                    id='password2'
+                    type='password'
+                    name='password2'   
                 />
                     
             </label>

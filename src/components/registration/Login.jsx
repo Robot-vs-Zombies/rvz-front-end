@@ -4,8 +4,8 @@ import axios from 'axios';
 
 export default function Login(props) {
    const [user, setUsers] = useState({
-    email: '',
-    password: ''
+    username: '',
+    password: '',
    })
 
     const handleChange = (e) => {
@@ -16,11 +16,11 @@ export default function Login(props) {
 
     const handleSubmit = () => {
      axios
-     .post("https://lambda-mud-test.herokuapp.com/api/login")
+     .post("https://lambda-mud-test.herokuapp.com/api/login/")
      .then(res => {
          console.log(res)
         localStorage.setItem('token', res.data.key);
-        localStorage.setItem('email', user.email)
+        localStorage.setItem('username', user.username)
         props.history.push('/dashboard');
      })
      .catch(err => {
@@ -30,13 +30,13 @@ export default function Login(props) {
 
     return (
        <form onSubmit={handleSubmit}>
-           <label htmlFor='email'>email
+           <label htmlFor='username'>
            <input
                 onChange={handleChange}
-                id = 'email'
+                id = 'username'
                 type='text'
-                name='email'
-                value={user.email}
+                name='username'
+                value={user.username}
                 />
            </label>
            <label htmlFor='password'>
