@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -10,6 +12,14 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+h1 {
+  font-family: "Press Start 2P", cursive;
+}
+
+h2 {
+  font-family: "Press Start 2P", cursive;
 }
 
 .error-message {
@@ -88,6 +98,10 @@ code {
   transform: translate(-50%, 0%);
 }
 
+.first-row button {
+  cursor: pointer;
+}
+
 .second-row {
   display: flex;
   flex-direction: row;
@@ -95,7 +109,29 @@ code {
 }
 
 .second-row button {
+  cursor: pointer;
+}
+
+.third-row button {
+  cursor: pointer;
+}
+
+.second-row button {
   margin: 10px;
+}
+
+.dialog-cont {
+  width: 15%;
+  margin-left: 16rem;
+}
+
+.player-info {
+  overflow-y: scroll;
+  height: 15rem;
+}
+
+.game-container {
+  display: flex;
 }
 
 .game-container button {
@@ -106,4 +142,10 @@ code {
 
 .game-container button:hover {
   background-color: #c3cde6;
+}
+
+.game-section {
+  display: flex;
+  flex-direction: column;
+  margin-left: 14rem;
 }
