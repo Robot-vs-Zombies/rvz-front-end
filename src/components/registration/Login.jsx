@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import NavBar from "../NavBar";
 export default function Login(props) {
   const [user, setUsers] = useState({
     username: "",
@@ -31,26 +31,29 @@ export default function Login(props) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="username">
-        <input
-          onChange={handleChange}
-          id="username"
-          type="text"
-          name="username"
-          value={user.username}
-        />
-      </label>
-      <label htmlFor="password">
-        <input
-          onChange={handleChange}
-          id="password"
-          type="password"
-          name="password"
-          value={user.password}
-        />
-      </label>
-      <button type="submit">Login</button>
-    </form>
+    <div>
+      <NavBar />
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="username">
+          <input
+            onChange={handleChange}
+            id="username"
+            type="text"
+            name="username"
+            value={user.username}
+          />
+        </label>
+        <label htmlFor="password">
+          <input
+            onChange={handleChange}
+            id="password"
+            type="password"
+            name="password"
+            value={user.password}
+          />
+        </label>
+        <button type="submit">Login</button>
+      </form>
+    </div>
   );
 }
