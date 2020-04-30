@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axiosWithAuth from "../../utils/axiosWithAuth";
 import NavBar from "../NavBar";
 
 export default function SignUp(props) {
@@ -21,8 +21,8 @@ export default function SignUp(props) {
   const handleSubmit = (e) => {
     console.log("new user info", newUser);
     e.preventDefault();
-    axios
-      .post("https://lambda-mud-test.herokuapp.com/api/registration/", newUser)
+    axiosWithAuth()
+      .post("registration/", newUser)
       .then((res) => {
         localStorage.setItem("token", res.data.key);
         localStorage.setItem("username", newUser.username);
