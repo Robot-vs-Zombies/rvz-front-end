@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axiosWithAuth from "../../utils/axiosWithAuth";
-
+import NavBar from "../NavBar";
 export default function Dashboard() {
   const [direction, setDirection] = useState("");
 

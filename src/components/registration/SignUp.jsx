@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import NavBar from "../NavBar";
 
 export default function SignUp(props) {
   const [newUser, setNewUser] = useState({
@@ -36,6 +37,7 @@ export default function SignUp(props) {
 
   return (
     <div>
+      <NavBar />
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">
           <input
