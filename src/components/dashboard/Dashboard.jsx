@@ -10,19 +10,30 @@ export default function Dashboard() {
 
   useEffect(() => {
     axiosWithAuth()
-      .get("/api/adv/init/")
+      .get("/rooms")
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+  useEffect(() => {
+    axiosWithAuth()
+      .get("/init")
       .then((res) => {
         console.log(res);
         setRoomData(res.data);
       })
-      .catch((res) => {
-        console.log(res);
+      .catch((err) => {
+        console.log(err.response);
       });
   }, []);
 
   const handleSubmit = (event) => {
     axiosWithAuth()
-      .post("/api/adv/move", { direction: direction })
+      .post("/move", { direction: direction })
       .then((res) => {
         console.log(res);
         setRoomData(res.data);
@@ -77,7 +88,7 @@ export default function Dashboard() {
           </button>
         </div>
         <div className="game-board">
-          <img src={Player} className="player" />
+          <img src={Player} className="player" alt="player-icon" />
           <div className="north-door"></div>
           <div className="south-door"></div>
           <div className="east-door"></div>

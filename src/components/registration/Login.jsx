@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axiosWithAuth from "../../utils/axiosWithAuth";
 import NavBar from "../NavBar";
 export default function Login(props) {
   const [user, setUsers] = useState({
@@ -17,8 +17,8 @@ export default function Login(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-      .post("https://lambda-mud-test.herokuapp.com/api/login/", user)
+    axiosWithAuth()
+      .post("login/", user)
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.data.key);
