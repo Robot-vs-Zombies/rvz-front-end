@@ -1,7 +1,6 @@
 import React from "react";
 
 const GameDialog = (props) => {
-  console.log(props);
   return (
     <div className="game-info-cont">
       <h1>Navigation Information</h1>

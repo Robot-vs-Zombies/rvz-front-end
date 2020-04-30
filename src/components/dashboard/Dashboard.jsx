@@ -7,17 +7,19 @@ import GameDialog from "./GameDialog";
 export default function Dashboard() {
   const [direction, setDirection] = useState("");
   const [roomData, setRoomData] = useState({});
+  const [allRooms, setAllRooms] = useState([]);
 
   useEffect(() => {
     axiosWithAuth()
       .get("/rooms")
       .then((res) => {
         console.log(res);
+        setAllRooms(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  });
+  }, []);
 
   useEffect(() => {
     axiosWithAuth()
@@ -42,6 +44,8 @@ export default function Dashboard() {
         console.log(res);
       });
   };
+
+  console.log(allRooms, "All rooms in world");
 
   return (
     <div className="game-container">

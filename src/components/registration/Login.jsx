@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 import NavBar from "../NavBar";
 export default function Login(props) {
