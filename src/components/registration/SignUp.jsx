@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import NavBar from "../NavBar";
+import Logo from "../images/rvz1.png";
 
 export default function SignUp(props) {
   const [newUser, setNewUser] = useState({
@@ -39,34 +39,39 @@ export default function SignUp(props) {
   };
 
   return (
-    <div>
+    <div className="main-register-cont">
       <NavBar />
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">
+      <img className="logo-img" src={Logo} alt="main-logo" />
+      <h1>Robots vs Zombies</h1>
+      <form className="register-form" onSubmit={handleSubmit}>
+        <div className="input-field">
+          <label htmlFor="username">Username</label>
           <input
             onChange={handleChange}
             id="username"
             type="text"
             name="username"
           />
-        </label>
-        <label htmlFor="password1">
+        </div>
+        <div className="input-field">
+          <label htmlFor="password1">Password</label>
           <input
             onChange={handleChange}
             id="password1"
             type="password"
             name="password1"
           />
-        </label>
-        <label htmlFor="password2">
+        </div>
+        <div className="input-field">
+          <label htmlFor="password2">Confirm Password</label>
           <input
             onChange={handleChange}
             id="password2"
             type="password"
             name="password2"
           />
-        </label>
-        <button>Register</button>
+        </div>
+        <button className="register-btn">Register</button>
       </form>
       {error ? <p className="error-message">registration failed!</p> : null}
     </div>
