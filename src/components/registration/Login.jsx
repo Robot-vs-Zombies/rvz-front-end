@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import NavBar from "../NavBar";
+import Logo from "../images/rvz1.png";
+
 export default function Login(props) {
   const [user, setUsers] = useState({
     username: "",
@@ -32,27 +34,39 @@ export default function Login(props) {
   return (
     <div>
       <NavBar />
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">
-          <input
-            onChange={handleChange}
-            id="username"
-            type="text"
-            name="username"
-            value={user.username}
-          />
-        </label>
-        <label htmlFor="password">
-          <input
-            onChange={handleChange}
-            id="password"
-            type="password"
-            name="password"
-            value={user.password}
-          />
-        </label>
-        <button type="submit">Login</button>
-      </form>
+      <div className="main-login-cont">
+        <img className="logo-img" src={Logo} alt="main-logo" />
+        <h1>Robots vs Zombies</h1>
+        <form className="login-container" onSubmit={handleSubmit}>
+          <div className="input-field">
+            <label className="input-label" htmlFor="username">
+              Username
+            </label>
+            <input
+              onChange={handleChange}
+              id="username"
+              type="text"
+              name="username"
+              value={user.username}
+            />
+          </div>
+          <div className="input-field">
+            <label className="input-label" htmlFor="password">
+              Password
+            </label>
+            <input
+              onChange={handleChange}
+              id="password"
+              type="password"
+              name="password"
+              value={user.password}
+            />
+          </div>
+          <button className="login-btn" type="submit">
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

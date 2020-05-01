@@ -9,7 +9,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1>Robots vs Zombies</h1>
         <Switch>
           <Route exact path="/" component={SignUp} />
           <Route path="/login" component={Login} />
