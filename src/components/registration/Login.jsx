@@ -32,27 +32,37 @@ export default function Login(props) {
   return (
     <div>
       <NavBar />
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">
-          <input
-            onChange={handleChange}
-            id="username"
-            type="text"
-            name="username"
-            value={user.username}
-          />
-        </label>
-        <label htmlFor="password">
-          <input
-            onChange={handleChange}
-            id="password"
-            type="password"
-            name="password"
-            value={user.password}
-          />
-        </label>
-        <button type="submit">Login</button>
-      </form>
+      <div>
+        <form className="login-container" onSubmit={handleSubmit}>
+          <div className="input-field">
+            <label className="input-label" htmlFor="username">
+              Username
+            </label>
+            <input
+              onChange={handleChange}
+              id="username"
+              type="text"
+              name="username"
+              value={user.username}
+            />
+          </div>
+          <div className="input-field">
+            <label className="input-label" htmlFor="password">
+              Password
+            </label>
+            <input
+              onChange={handleChange}
+              id="password"
+              type="password"
+              name="password"
+              value={user.password}
+            />
+          </div>
+          <button className="login-btn" type="submit">
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
