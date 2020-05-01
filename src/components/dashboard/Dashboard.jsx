@@ -77,6 +77,7 @@ export default function Dashboard() {
         <GameDialog key={roomData.id} data={roomData} />
       </div>
       <div className="game-section">
+        <h1>Robots vs Zombies</h1>
         <div className="first-row">
           <button
             onClick={() => {
@@ -111,6 +112,11 @@ export default function Dashboard() {
             South
           </button>
         </div>
+        {!roomData.error_msg ? (
+          <p>Please select a direction...</p>
+        ) : (
+          <p>You cannot go that way!</p>
+        )}
         <div className="game-board">
           <img src={Player} className="player" alt="player-icon" />
           {northRoomActive ? <div className="north-door"></div> : null}

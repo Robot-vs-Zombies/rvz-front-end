@@ -16,10 +16,12 @@ code {
 
 h1 {
   font-family: "Press Start 2P", cursive;
+  color: #3895d3;
 }
 
 h2 {
   font-family: "Press Start 2P", cursive;
+  color: #3895d3;
 }
 
 .error-message {
@@ -132,6 +134,7 @@ h2 {
 
 .game-container {
   display: flex;
+  margin-top: 5rem;
 }
 
 .game-container button {
@@ -148,6 +151,11 @@ h2 {
   display: flex;
   flex-direction: column;
   margin-left: 14rem;
+}
+
+.game-section p {
+  font-family: "Press Start 2P", cursive;
+  color: #3895d3;
 }
 
 /* Login form styling */
@@ -177,6 +185,8 @@ h2 {
 
 .login-container input {
   margin-bottom: 0.7rem;
+  border-radius: 2px;
+  border: 1px solid gray;
 }
 
 .login-btn {
@@ -184,15 +194,52 @@ h2 {
   cursor: pointer;
   height: 1.5rem;
   border-radius: 3px;
-  border: 1px solid gray;
+  border: 1px solid #3895d3;
 }
 
 .login-btn:hover {
-  background-color: gray;
+  background-color: #3895d3;
   color: white;
 }
 
 .logo-img {
   width: 5rem;
   align-self: center;
+}
+
+/* Register page styling */
+
+.main-register-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20rem;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-form label {
+  margin-bottom: 5px;
+}
+
+.register-form input {
+  border-radius: 2px;
+  border: 1px solid gray;
+}
+
+.register-btn {
+  width: 10.8rem;
+  cursor: pointer;
+  height: 1.5rem;
+  border-radius: 3px;
+  border: 1px solid #3895d3;
+  margin-top: 15px;
+}
+
+.register-btn:hover {
+  background-color: #3895d3;
+  color: white;
 }
