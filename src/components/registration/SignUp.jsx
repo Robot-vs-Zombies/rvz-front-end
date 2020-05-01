@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axiosWithAuth from "../../utils/axiosWithAuth";
+import axios from "axios";
 import NavBar from "../NavBar";
 
 export default function SignUp(props) {
@@ -21,8 +21,11 @@ export default function SignUp(props) {
   const handleSubmit = (e) => {
     console.log("new user info", newUser);
     e.preventDefault();
-    axiosWithAuth()
-      .post("registration/", newUser)
+    axios
+      .post(
+        "https://agile-stream-99199.herokuapp.com/api/adv/registration/",
+        newUser
+      )
       .then((res) => {
         localStorage.setItem("token", res.data.key);
         localStorage.setItem("username", newUser.username);
@@ -31,7 +34,7 @@ export default function SignUp(props) {
       })
       .catch((err) => {
         setError(true);
-        console.log(err);
+        console.log(err.response);
       });
   };
 

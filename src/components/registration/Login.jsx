@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axiosWithAuth from "../../utils/axiosWithAuth";
+import axios from "axios";
 import NavBar from "../NavBar";
 export default function Login(props) {
   const [user, setUsers] = useState({
@@ -16,8 +16,8 @@ export default function Login(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axiosWithAuth()
-      .post("login/", user)
+    axios
+      .post("https://agile-stream-99199.herokuapp.com/api/adv/login/", user)
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.data.key);
@@ -25,7 +25,7 @@ export default function Login(props) {
         props.history.push("/dashboard");
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response);
       });
   };
 
