@@ -4,8 +4,12 @@ export default function NavBar() {
   return (
     <div className="nav-bar">
       <nav>
-        <Link to="/">Register</Link>
-        <Link to="/login">Login</Link>
+        <Link style={{ textDecoration: "None", color: "gray" }} to="/">
+          Register
+        </Link>
+        <Link style={{ textDecoration: "None", color: "gray" }} to="/login">
+          Login
+        </Link>
       </nav>
     </div>
   );

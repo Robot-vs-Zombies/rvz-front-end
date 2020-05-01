@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import NavBar from "../NavBar";
+import Logo from "../images/rvz1.png";
+
 export default function Login(props) {
   const [user, setUsers] = useState({
     username: "",
@@ -32,7 +34,9 @@ export default function Login(props) {
   return (
     <div>
       <NavBar />
-      <div>
+      <div className="main-login-cont">
+        <img className="logo-img" src={Logo} alt="main-logo" />
+        <h1>Robots vs Zombies</h1>
         <form className="login-container" onSubmit={handleSubmit}>
           <div className="input-field">
             <label className="input-label" htmlFor="username">
